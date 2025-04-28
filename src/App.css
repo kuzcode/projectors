@@ -19,22 +19,71 @@
 
 body {
   margin: 0;
-  padding: 27px 0 0 0;
+  max-width: 100vw;
+}
+
+main {
+  margin: 0;
+  padding: 100px 0 0 0;
+  max-width: 100%;
 }
 
 header {
   position: fixed;
   display: flex;
+  flex-direction: column;
+  max-width: 100vw;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 5;
+}
+
+header .row {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .row p {
+  font-family: helvl;
+}
+
+header .row .search {
+  background: #F5F5F5;
+  width: 40vw;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+header .row .search p {
+  color: #656565;
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+}
+
+header nav a {
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+header nav a p {
+  color: #3333334D;
+}
+
+header nav a .selected {
+  color: #000;
 }
 
 ul {
   margin: 0;
   padding: 0;
   background: #2E2E2E;
-  width: 100vw;
   padding: 16px 5vw;
   display: flex;
   justify-content: space-between;
@@ -52,6 +101,7 @@ main {}
   background: linear-gradient(20deg, #211C24, #211C24E5);
   height: 300px;
   overflow: hidden;
+  max-width: 100vw;
 }
 
 .block1 h1 {
@@ -95,7 +145,7 @@ main {}
   justify-content: space-between;
   /* Для расположения элементов по рядам */
   background: white;
-  width: 88vw;
+  max-width: 100vw;
   margin: 0 5vw;
   /* Отступы по бокам у каталога */
   padding: 0;
@@ -105,8 +155,7 @@ main {}
 .catalogue li {
   position: relative;
   width: calc((100% - 10vw) / 3);
-  /* Учтены отступы между элементами */
-  height: 18vw;
+  height: 19vw;
   overflow: hidden;
   border-radius: 24px;
   background: #2E2E2E;
@@ -137,14 +186,349 @@ main {}
 }
 
 .catalogue li img {
-  height: 12vw;
-  margin-top: -4px;
-  position: relative;
+  position: absolute;
+  /* меняем позиционирование на абсолютное */
+  right: -30px;
+  /* немного сдвигаем вправо */
+  bottom: -40px;
+  /* немного сдвигаем вниз */
+  width: auto;
+  /* можно задать свою высоту или ширину*/
+  height: calc(var(--index) * 15 - 70px);
+  /* это оставляем, если речь о высоте */
   z-index: 2;
+}
+
+h3 {
+  font-family: helvb;
+  font-size: calc(var(--index) * 1.5 - 4px);
+  margin: 36px 5vw 8px 5vw;
+}
+
+h6 {
+  color: #33333380;
+  font-family: helvl;
+  font-size: calc(var(--index) * 0.7 + 3px);
+  margin: 0 5vw;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  max-width: 100vw;
+}
+
+.item {
+  background: #FAFAFA;
+  width: 18vw;
+  margin: 1vw;
+  border-radius: 24px;
+}
+
+.item img {
+  width: 90%;
+  margin: 0 auto;
+  height: 100px;
+  object-fit: contain;
+}
+
+.item p {
+  font-family: helvm;
+  margin: 8px 5%;
+}
+
+.item button {
+  width: calc(100% - 32px);
+  border: none;
+  border-radius: 8px;
+  position: relative;
+  margin: 4px 16px;
+  padding: 12px 0;
+  cursor: pointer;
+}
+
+.item button p {
+  font-family: helvm;
+  margin: 0;
+}
+
+.btn1 {
+  background: #F0F0F0;
+}
+
+.btn2 {
+  background: #211C24;
+}
+
+.btn2 p {
+  color: white;
+}
+
+.block3 {
+  background: #211C24;
+}
+
+.block3 {
+  color: white;
+  padding: 24px 0 100px 0;
+}
+
+.block3 h5 {
+  color: white;
+  font-family: helvl;
+  margin: 24px 5vw -30px 5vw;
+}
+
+.block3 a {
+  text-decoration: none;
+}
+
+.block3 a p {
+  color: white;
+  padding: 0 5vw;
+  font-family: helvb;
+  font-size: calc(var(--index) * 1.4 + 6px);
+}
+
+.block3 h6 {
+  color: white;
+}
+
+.block3 .steps {
   float: right;
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+.block3 .steps li {
+  list-style: none;
+  width: 50%;
+}
+
+.block3 .steps li h4 {
+  font-family: helvb;
+  font-size: calc(var(--index) * 1.4 + 6px);
+}
+
+.block3 .steps li p {
+  font-family: helvl;
+  margin-top: -30px;
+  font-size: calc(var(--index) * 0.6 + 4px);
+}
+
+.block4 {
+  display: flex;
+  justify-content: center;
+}
+
+.block4 li {
+  list-style: none;
+  background: #211C24;
+  color: #fff;
+  width: calc(8vw + 200px);
+  padding: 20px;
+  margin: 24px 12px;
+  border-radius: 36px;
+}
+
+.block4 li h4 {
+  font-family: helvb;
+  font-size: calc(var(--index) * 1.2 + 6px);
+  margin: 0;
+}
+
+.block4 li img {
+  width: 80px;
+  height: 80px;
+  box-sizing: content-box;
+  border-radius: 100%;
+  border: 4px #211C24 solid;
+  float: right;
+  margin: -40px 20px 0 0;
+}
+
+.block4 li h6 {
+  font-family: helvl;
+  color: #FFFFFF80;
+  margin: 4px 0 0 0;
+  font-size: calc(var(--index) * 0.6 + 4px);
+}
+
+.block4 li p {
+  font-family: helvl;
+  font-size: calc(var(--index) * 0.6 + 2px);
+}
+
+.advice button {
+  background: #fff;
+  width: 100%;
+  border-radius: 12px;
+  border: none;
+}
+
+.advice button p {
+  color: #211C24;
+  font-family: helvm;
+}
+
+.nav-container {
+  display: none;
+}
+
+.block5 {
+  display: flex;
+  margin-bottom: 24px;
+  justify-content: space-between;
+}
+
+.block5 {
+  color: #fff;
+}
+
+.block5 p {
+  font-family: helvl;
+  margin: 0 5vw;
+}
+
+.left a {
+  text-decoration: none;
+}
+
+.left a p {
+  color: #fff;
+  font-family: helvb;
+  font-size: calc(var(--index) * 1.2 + 4px);
+  padding-top: 12px;
+}
+
+.left {
+  background: #37333A;
+  width: 49.5%;
+  border-radius: 0 6px 6px 0;
+  padding-bottom: 24px;
+}
+
+.right {
+  background: #2A2A2A;
+  width: 49.5%;
+  border-radius: 6px 0 0 6px;
+  padding-bottom: 24px;
+}
+
+.right input {
+  margin: 0 5vw;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+@media screen and (max-width: 1050px) {
+  header nav {
+    display: none;
+  }
+
+  header .search {
+    width: 34vw;
+  }
+
+  .nav-container {
+    display: block;
+  }
+
+  .nav-container .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 32px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .nav-container .hamburger-lines {
+    display: block;
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 28px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .nav-container .hamburger-lines .line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background: #000000;
+  }
+
+  .nav-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .nav-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .nav-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .navbar .menu-items {
+    padding-top: 120px;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    height: 100vh;
+    width: 100%;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+    padding-left: 50px;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+  }
+
+  .navbar .menu-items li {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .nav-container input[type="checkbox"]:checked~.menu-items {
+    transform: translateX(0);
+  }
+
+  .nav-container input[type="checkbox"]:checked~.hamburger-lines .line1 {
+    transform: rotate(45deg);
+  }
+
+  .nav-container input[type="checkbox"]:checked~.hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+
+  .nav-container input[type="checkbox"]:checked~.hamburger-lines .line3 {
+    transform: rotate(-45deg);
+  }
+
+  .nav-container input[type="checkbox"]:checked~.logo {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 750px) {
+  .catalogue li {
+    width: 42vw;
+  }
+
   header ul {
     display: none;
   }
@@ -177,5 +561,9 @@ main {}
     bottom: 10vh;
     left: 5vw;
     right: 5vw;
+  }
+
+  .block3 .steps {
+    display: none;
   }
 }

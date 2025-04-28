@@ -1,4 +1,6 @@
 import './App.css';
+import { useEffect, useState } from 'react';
+import { databases } from './appwrite'; // Импортируйте ваши настройки Appwrite
 import projector from './assets/projector-cropped.png';
 import panel from './assets/panel.png';
 import jbl from './assets/jbl.png';
@@ -7,9 +9,48 @@ import dj from './assets/dj.png';
 import karaoke from './assets/karaoke.png';
 
 function App() {
+  const [items, setItems] = useState([]); // Здесь будет храниться полученный список
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await databases.listDocuments('680f76f400310e3b1030', '680f79ba000b5bbffbbd');
+        setItems(response.documents);
+      } catch (error) {
+        console.error("Error fetching data from Appwrite: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  
   return (
     <body>
       <header>
+        <div className='row'>
+          <p>аренда техники</p>
+
+          <div className='search'>
+            <p>Поиск</p>
+          </div>
+
+          <nav>
+            <a href="/"><p className='selected'>Главная</p></a>
+            <a href="/"><p>Каталог</p></a>
+            <a href="/"><p>Контакты</p></a>
+            <a href="tel:+7(962)824-22-22"><p className='selected'>+7 (962) 824-22-22</p></a>
+          </nav>
+
+          <div className='nav-container'>
+            <input class="checkbox" type="checkbox" name="" id="" />
+            <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+            </div>
+            </div>
+        </div>
+
         <ul>
           <a><p>Проекторы</p></a>
           <a><p>ЖК Панели</p></a>
@@ -59,6 +100,103 @@ function App() {
             </li>
           </ul>
         </div>
+
+        <h3>Популярные товары</h3>
+        <h6>Выберите технику для вашего мероприятия</h6>
+        <div className='products'>
+        {items.map(item =>
+          <div className='item'>
+            <img
+            src={item.imageUrl}
+            />
+            <p>{item.title}</p>
+            <button className='btn1'>
+              <p>Подробнее</p>
+            </button>
+            <button className='btn2'>
+              <p>В корзину</p>
+            </button>
+          </div>
+        )}
+        </div>
+
+        <div className='block3'>
+        <div className='steps'>
+            <li>
+              <h4>01</h4>
+              <p>Выберите дату и оборудование – онлайн или по телефону</p>
+            </li>
+            <li>
+              <h4>02</h4>
+              <p>Подтвердите заказ – менеджер согласует детали</p>
+            </li>
+            <li>
+              <h4>03</h4>
+              <p>Получите технику – доставим, настроим, заберем!</p>
+            </li>
+          </div>
+
+          <h3>Как заказать?</h3>
+          <h6>3 шага – и техника у вас!</h6>
+
+          <h5>Звоните</h5>
+          <a href='tel:+7(962)824-22-22'><p>+7 (962) 824-22-22</p></a>
+
+          <h6>Или пишите – ответим за 5 минут! </h6>
+        </div>
+
+        <div className='block4'>
+          <li>
+          <img
+            src='https://ru-static.z-dn.net/files/d2c/cd32ddddf5f88c6cded3642b05af38d2.jpg'
+            />
+            <h4>Игорсь С.</h4>
+            <h6>Отзыв от частного клиента</h6>
+            <p>
+            Нужны были колонки для домашней вечеринки. Взял здесь пару колонок на выходные – звук мощный, все гости довольны. Удобно, что можно взять в аренду на день-два, не покупая дорогое оборудование. Быстро оформили, никаких заморочек. Рекомендую!
+            </p>
+          </li>
+          <li>
+          <img
+            src='https://ru-static.z-dn.net/files/d2c/cd32ddddf5f88c6cded3642b05af38d2.jpg'
+            />
+            <h4>Игорсь С.</h4>
+            <h6>Отзыв от частного клиента</h6>
+            <p>
+            Нужны были колонки для домашней вечеринки. Взял здесь пару колонок на выходные – звук мощный, все гости довольны. Удобно, что можно взять в аренду на день-два, не покупая дорогое оборудование. Быстро оформили, никаких заморочек. Рекомендую!
+            </p>
+          </li>
+          <li className='advice'>
+            <h4>Оставьте свой отзыв о работе с нами!</h4>
+            <p>
+            Мы дорожим каждым нашим клиентом и всегда учитываем его мнение для лучший эффективности наших продуктов!
+            </p>
+
+            <button>
+              <p>Оставить отзыв</p>
+            </button>
+          </li>
+        </div>
+
+        <div className='block5'>
+          <div className='left'>
+            <h3>Позвоните нам прямо сейчас!</h3>
+            <p>Не откладывайте! Каждый звонок — шаг к безупречной организации вашего мероприятия с профессиональной техникой!</p>
+
+            <a href="tel:+7(962)824-22-22"><p>+7 (962) 824-22-22</p></a>
+          </div>
+
+          <div className='right'>
+            <h3>Или оставьте заявку</h3>
+            <input
+            value=''
+            placeholder='+7 (999) 999-99-99'
+            />
+          </div>
+        </div>
+
+
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9c541136892eadaf07b95f12c9443bf7eeb91b614a74bd5906840140440d47e3&amp;width=100%25&amp;height=327&amp;lang=ru_RU&amp;scroll=true"></script>
       </main>
     </body>
   );
