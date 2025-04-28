@@ -286,6 +286,7 @@ h6 {
 
 .block3 a p {
   color: white;
+  margin-top: 40px;
   padding: 0 5vw;
   font-family: helvb;
   font-size: calc(var(--index) * 1.4 + 6px);
@@ -343,7 +344,7 @@ h6 {
 .block4 li img {
   width: 80px;
   height: 80px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   border-radius: 100%;
   border: 4px #211C24 solid;
   float: right;
@@ -367,6 +368,7 @@ h6 {
   width: 100%;
   border-radius: 12px;
   border: none;
+  cursor: pointer;
 }
 
 .advice button p {
@@ -419,10 +421,54 @@ h6 {
 }
 
 .right input {
+  width: 50%;
   margin: 0 5vw;
   border: none;
   border-radius: 6px;
-  padding: 6px 12px;
+  padding: 8px 12px;
+}
+
+.right button {
+  width: calc(50% + 24px);
+  margin: 12px 5vw;
+  border: none;
+  background: white;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.right button p {
+  font-family: helvm;
+}
+
+.right ul {
+  list-style: none;
+  display: flex;
+  padding: 4px 5vw 12px 5vw;
+  background: #2A2A2A;
+}
+
+.right li {
+  display: flex;
+  margin: 0;
+  cursor: pointer;
+}
+
+.right li p {
+  margin: 0 0 0 6px;
+  font-size: 14px;
+}
+
+.right .circle {
+  height: 16px;
+  width: 16px;
+  border: 2px white solid;
+  border-radius: 100px;
+}
+
+.right .clicked {
+  background: white;
 }
 
 @media screen and (max-width: 1050px) {
@@ -432,6 +478,15 @@ h6 {
 
   header .search {
     width: 34vw;
+  }
+
+  .products {
+    flex-wrap: wrap;
+  }
+
+  .item {
+    width: 45vw;
+    min-width: 240px;
   }
 
   .nav-container {
@@ -539,31 +594,49 @@ h6 {
 
   .block1 {
     height: 90vh;
+    margin-top: 0;
   }
 
   .block1 img {
-    width: calc(var(--index) * 6 + 250px);
+    width: calc(var(--index) * 8 + 400px);
     height: auto;
     float: none;
-    margin: 60vh auto 0 18vw;
+    margin: 36vh auto 0 4vw;
   }
 
   .block1 h1 {
+    top: 100px;
     position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 5vh 5vw 0 5vw;
-    font-size: calc(var(--index) * 1.5 + 8px);
+    width: calc(100% - 10vw);
+    padding: 0 5vw 0 5vw;
+    font-size: calc(var(--index) * 2 + 8px);
   }
 
   .block1 button {
     position: absolute;
-    bottom: 10vh;
-    left: 5vw;
+    bottom: 24px;
+    left: 0;
     right: 5vw;
   }
 
   .block3 .steps {
     display: none;
+  }
+
+  .block4 {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .block4 li {
+    min-width: 220px;
+  }
+
+  .block5 li {
+    margin-top: 6px;
+  }
+
+  .block5 ul {
+    flex-wrap: wrap;
   }
 }

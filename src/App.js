@@ -10,6 +10,12 @@ import karaoke from './assets/karaoke.png';
 
 function App() {
   const [items, setItems] = useState([]); // Здесь будет храниться полученный список
+  const [contactType, setContactType] = useState(0);
+  const [phone, setPhone] = useState(null);
+
+  const handleSubmit = () => {
+    console.log(phone);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +29,7 @@ function App() {
 
     fetchData();
   }, []);
-  
+
   return (
     <body>
       <header>
@@ -48,7 +54,7 @@ function App() {
               <span class="line line2"></span>
               <span class="line line3"></span>
             </div>
-            </div>
+          </div>
         </div>
 
         <ul>
@@ -104,24 +110,24 @@ function App() {
         <h3>Популярные товары</h3>
         <h6>Выберите технику для вашего мероприятия</h6>
         <div className='products'>
-        {items.map(item =>
-          <div className='item'>
-            <img
-            src={item.imageUrl}
-            />
-            <p>{item.title}</p>
-            <button className='btn1'>
-              <p>Подробнее</p>
-            </button>
-            <button className='btn2'>
-              <p>В корзину</p>
-            </button>
-          </div>
-        )}
+          {items.map(item =>
+            <div className='item'>
+              <img
+                src={item.imageUrl}
+              />
+              <p>{item.title}</p>
+              <button className='btn1'>
+                <p>Подробнее</p>
+              </button>
+              <button className='btn2'>
+                <p>В корзину</p>
+              </button>
+            </div>
+          )}
         </div>
 
         <div className='block3'>
-        <div className='steps'>
+          <div className='steps'>
             <li>
               <h4>01</h4>
               <p>Выберите дату и оборудование – онлайн или по телефону</p>
@@ -147,29 +153,29 @@ function App() {
 
         <div className='block4'>
           <li>
-          <img
-            src='https://ru-static.z-dn.net/files/d2c/cd32ddddf5f88c6cded3642b05af38d2.jpg'
+            <img
+              src='https://ru-static.z-dn.net/files/d2c/cd32ddddf5f88c6cded3642b05af38d2.jpg'
             />
             <h4>Игорсь С.</h4>
             <h6>Отзыв от частного клиента</h6>
             <p>
-            Нужны были колонки для домашней вечеринки. Взял здесь пару колонок на выходные – звук мощный, все гости довольны. Удобно, что можно взять в аренду на день-два, не покупая дорогое оборудование. Быстро оформили, никаких заморочек. Рекомендую!
+              Нужны были колонки для домашней вечеринки. Взял здесь пару колонок на выходные – звук мощный, все гости довольны. Удобно, что можно взять в аренду на день-два, не покупая дорогое оборудование. Быстро оформили, никаких заморочек. Рекомендую!
             </p>
           </li>
           <li>
-          <img
-            src='https://ru-static.z-dn.net/files/d2c/cd32ddddf5f88c6cded3642b05af38d2.jpg'
+            <img
+              src='https://ru-static.z-dn.net/files/d2c/cd32ddddf5f88c6cded3642b05af38d2.jpg'
             />
             <h4>Игорсь С.</h4>
             <h6>Отзыв от частного клиента</h6>
             <p>
-            Нужны были колонки для домашней вечеринки. Взял здесь пару колонок на выходные – звук мощный, все гости довольны. Удобно, что можно взять в аренду на день-два, не покупая дорогое оборудование. Быстро оформили, никаких заморочек. Рекомендую!
+              Нужны были колонки для домашней вечеринки. Взял здесь пару колонок на выходные – звук мощный, все гости довольны. Удобно, что можно взять в аренду на день-два, не покупая дорогое оборудование. Быстро оформили, никаких заморочек. Рекомендую!
             </p>
           </li>
           <li className='advice'>
             <h4>Оставьте свой отзыв о работе с нами!</h4>
             <p>
-            Мы дорожим каждым нашим клиентом и всегда учитываем его мнение для лучший эффективности наших продуктов!
+              Мы дорожим каждым нашим клиентом и всегда учитываем его мнение для лучший эффективности наших продуктов!
             </p>
 
             <button>
@@ -188,10 +194,28 @@ function App() {
 
           <div className='right'>
             <h3>Или оставьте заявку</h3>
+            <ul>
+              <li onClick={() => { setContactType(0) }}>
+                <div className={`circle ${contactType === 0 && 'clicked'}`}></div>
+                <p>Позвонить</p>
+              </li>
+              <li onClick={() => { setContactType(1) }}>
+                <div className={`circle ${contactType === 1 && 'clicked'}`}></div>
+                <p>Whatsapp</p>
+              </li>
+              <li onClick={() => { setContactType(2) }}>
+                <div className={`circle ${contactType === 2 && 'clicked'}`}></div>
+                <p>Telegram</p>
+              </li>
+            </ul>
             <input
-            value=''
-            placeholder='+7 (999) 999-99-99'
+              placeholder='+7 (999) 999-99-99'
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
+            <button onClick={handleSubmit}>
+              <p>Свяжитесь со мной</p>
+            </button>
           </div>
         </div>
 
