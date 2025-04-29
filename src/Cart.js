@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import trash from './assets/delete.png';
 import { databases } from './appwrite';
 import { ID } from 'appwrite';
+import logo from './assets/logo.png';
 
 const Cart = () => {
     const [phone, setPhone] = useState('')
@@ -24,11 +25,10 @@ const Cart = () => {
         <body>
             <header>
                 <div className='row'>
-                    <p>аренда техники</p>
-
-                    <div className='search'>
-                        <p>Поиск</p>
-                    </div>
+                    <img
+                        className='logo'
+                        src={logo}
+                    />
 
                     <nav>
                         <a href="/"><p>Главная</p></a>

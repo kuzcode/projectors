@@ -9,12 +9,11 @@ import { useState } from 'react';
 import { ID } from 'appwrite';
 import { databases } from '../appwrite';
 import cart from '../assets/cart.png'
+import logo from '../assets/logo.png';
 
 const Catalog = () => {
   const [contactType, setContactType] = useState(0);
   const [phone, setPhone] = useState(null);
-  const [search, setSearch] = useState('');
-
 
   const handleSubmit = () => {
     console.log(phone);
@@ -26,26 +25,10 @@ const Catalog = () => {
     <body>
       <header>
         <div className='row'>
-          <p>аренда техники</p>
-
-          <div
-            contentEditable
-            className="search"
-            onInput={(e) => {
-              const text = e.target.innerText;
-              setSearch(text);
-              // Устанавливаем курсор в конец текста
-              const range = document.createRange();
-              const selection = window.getSelection();
-              range.selectNodeContents(e.target);
-              range.collapse(false);
-              selection.removeAllRanges();
-              selection.addRange(range);
-            }}
-            suppressContentEditableWarning={true}
-          >
-            {search}
-          </div>
+          <img
+            className='logo'
+            src={logo}
+          />
 
           <nav>
             <a href="/"><p>Главная</p></a>

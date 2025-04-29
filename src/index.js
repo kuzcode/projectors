@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Catalog from './Catalogue/Index';
 import Projectors from './Catalogue/Projectors';
+import Panel from './Catalogue/Panel';
+import Speakers from './Catalogue/Speakers';
+import Sensor from './Catalogue/Sensor';
+import Dj from './Catalogue/Dj';
+import Karaoke from './Catalogue/Karaoke';
 
 import Contacts from './Contacts';
 import Cart from './Cart';
@@ -17,7 +22,11 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/catalog" element={<Catalog />} />
-        <Route path="/projectors" element={<Projectors />} />
+        <Route path="/panels" element={<Panel />} />
+        <Route path="/speakers" element={<Speakers />} />
+        <Route path="/sensor" element={<Sensor />} />
+        <Route path="/dj" element={<Dj />} />
+        <Route path="/karaoke" element={<Karaoke />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

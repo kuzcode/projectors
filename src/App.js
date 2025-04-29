@@ -8,6 +8,7 @@ import sensor from './assets/sensor.png';
 import dj from './assets/dj.png';
 import karaoke from './assets/karaoke.png';
 import cart from './assets/cart.png';
+import logo from './assets/logo.png';
 import { Router, useNavigate } from 'react-router-dom';
 import { ID, Query } from 'appwrite';
 
@@ -16,7 +17,6 @@ function App() {
   const [contactType, setContactType] = useState(0);
   const [phone, setPhone] = useState('');
   const [visible, setVisible] = useState(false);
-  const [search, setSearch] = useState('');
 
   const handleSubmit = () => {
     if (phone.length > 0) {
@@ -47,27 +47,10 @@ function App() {
     <body>
       <header>
         <div className='row'>
-          <p>аренда техники</p>
-          <p>в Новосибирске</p>
-
-          <div
-            contentEditable
-            className="search"
-            onInput={(e) => {
-              const text = e.target.innerText;
-              setSearch(text);
-              // Устанавливаем курсор в конец текста
-              const range = document.createRange();
-              const selection = window.getSelection();
-              range.selectNodeContents(e.target);
-              range.collapse(false);
-              selection.removeAllRanges();
-              selection.addRange(range);
-            }}
-            suppressContentEditableWarning={true}
-          >
-            {search}
-          </div>
+          <img
+          className='logo'
+          src={logo}
+          />
 
           <nav>
             <a href="/"><p className='selected'>Главная</p></a>
@@ -93,12 +76,12 @@ function App() {
         </div>
 
         <ul>
-          <a href="./projectors"><p>Проекторы</p></a>
-          <a href="./panels"><p>ЖК Панели</p></a>
-          <a href="./speakers"><p>Колонки</p></a>
-          <a href="./dj"><p>DJ оборудование</p></a>
-          <a href="./karaoke"><p>Караоке</p></a>
-          <a href="./sensor"><p>Сенсорные панели</p></a>
+          <a href="/projectors"><p>Проекторы</p></a>
+          <a href="/panels"><p>ЖК Панели</p></a>
+          <a href="/speakers"><p>Колонки</p></a>
+          <a href="/dj"><p>DJ оборудование</p></a>
+          <a href="/karaoke"><p>Караоке</p></a>
+          <a href="/sensor"><p>Сенсорные панели</p></a>
         </ul>
       </header>
       <main>
@@ -242,9 +225,11 @@ function App() {
               Мы дорожим каждым нашим клиентом и всегда учитываем его мнение для лучший эффективности наших продуктов!
             </p>
 
+            <a href="/contacts">
             <button>
               <p>Оставить отзыв</p>
             </button>
+            </a>
           </li>
         </div>
 
