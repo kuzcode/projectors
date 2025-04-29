@@ -18,14 +18,6 @@ function App() {
   const [phone, setPhone] = useState('');
   const [visible, setVisible] = useState(false);
 
-  const handleSubmit = () => {
-    if (phone.length > 0) {
-      // выполнять подачу заявки или другую логику
-      console.log(`Контактный тип: ${contactType}, Телефон: ${phone}`);
-    } else {
-      alert('Пожалуйста, введите номер телефона.');
-    }
-  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -59,8 +51,8 @@ function App() {
             <a href="tel:+7(962)824-22-22"><p className='selected'>+7 (962) 824-22-22</p></a>
           </nav>
 
-          <div className='nav-container'>
-            <input class="checkbox" type="checkbox" name="" id="" onClick={() => { setVisible(!visible) }} />
+          <div className='nav-container' onClick={() => { setVisible(!visible) }}>
+            <input class="checkbox" type="checkbox" name="" id="" />
             <div class="hamburger-lines">
               <span class="line line1"></span>
               <span class="line line2"></span>
