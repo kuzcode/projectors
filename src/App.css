@@ -119,12 +119,17 @@ main {}
   margin-top: 70px;
 }
 
-.block1 button {
+.block1 a {
+  text-decoration: none;
+}
+
+.block1 a div {
   background: #fff;
   border: 0;
   border-radius: 6px;
   padding: 16px 56px;
   margin: 0 0 0 5vw;
+  width: max-content;
 }
 
 .block1 p {
@@ -152,7 +157,7 @@ main {}
   /* Убираем padding для каталога */
 }
 
-.catalogue li {
+.catalogue a {
   position: relative;
   width: calc((100% - 10vw) / 3);
   height: 19vw;
@@ -161,10 +166,11 @@ main {}
   background: #2E2E2E;
   box-sizing: border-box;
   margin-bottom: 20px;
+  text-decoration: none;
   /* Отступ снизу для каждого элемента */
 }
 
-.catalogue li::after {
+.catalogue a::after {
   content: "";
   position: absolute;
   bottom: -30px;
@@ -177,7 +183,7 @@ main {}
   z-index: 1;
 }
 
-.catalogue li p {
+.catalogue a p {
   font-family: helvl;
   color: white;
   margin: 24px;
@@ -185,7 +191,7 @@ main {}
   z-index: 1;
 }
 
-.catalogue li img {
+.catalogue a img {
   position: absolute;
   /* меняем позиционирование на абсолютное */
   right: -30px;
@@ -212,6 +218,21 @@ h6 {
   margin: 0 5vw;
 }
 
+.cart {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F5F5F5;
+}
+
+.cart img {
+  width: 24px;
+  height: 24px;
+}
+
 .products {
   display: flex;
   justify-content: center;
@@ -219,11 +240,23 @@ h6 {
   max-width: 100vw;
 }
 
+.productslist {
+  display: flex;
+  justify-content: center;
+  margin: 5vw 48px;
+  max-width: 100vw;
+  flex-wrap: wrap;
+}
+
 .item {
   background: #FAFAFA;
-  width: 18vw;
+  width: 17vw;
   margin: 1vw;
   border-radius: 24px;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .item img {
@@ -344,7 +377,7 @@ h6 {
 .block4 li img {
   width: 80px;
   height: 80px;
-  box-sizing: border-box;
+  object-fit:cover;
   border-radius: 100%;
   border: 4px #211C24 solid;
   float: right;
@@ -420,12 +453,14 @@ h6 {
   padding-bottom: 24px;
 }
 
-.right input {
+.right .input {
+  background: #fff;
   width: 50%;
   margin: 0 5vw;
   border: none;
   border-radius: 6px;
   padding: 8px 12px;
+  color: #000;
 }
 
 .right button {
@@ -471,6 +506,130 @@ h6 {
   background: white;
 }
 
+.contactsTitle, .cartTitle {
+  font-family: helvb;
+  margin: 52px 5vw 24px 5vw;
+}
+
+.toppad {
+  padding-top: 40px;
+}
+
+.displayNone {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.menu {
+  width: 100vw;
+  height: 100vh;
+  top: 70px;
+  position: fixed;
+  background: #ffffffa3;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10;
+}
+
+.menu h3 {
+  font-size: 19px;
+}
+
+.menu a p {
+  font-family: helvl;
+  color: #2a2a2ad1;
+  margin: 8px 5vw;
+}
+
+.saved h3 {
+  margin: 0;
+}
+
+.saved {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F5F5F5;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: 55vw;
+}
+
+.saved .trash {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.saved .photo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.saved p {
+  font-family: helvl;
+  margin-right: 8px;
+}
+
+.bill .sub {
+  font-family: helvl;
+  margin: 4px 24px;
+  color: #37333A;
+}
+
+.bill h3 {
+  margin: 24px;
+}
+
+
+.bill .input {
+  background: white;
+  margin: 0 24px;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.bill button {
+  background: #000;
+  width: calc(100% - 48px);
+  margin: 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.bill button p {
+  color: white;
+  text-align: center;
+}
+
+.cartItems {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5vw;
+}
+
+.bill {
+  background: #F5F5F5;
+  width: 30vw;
+  border-radius: 8px;
+}
+
 @media screen and (max-width: 1050px) {
   header nav {
     display: none;
@@ -478,6 +637,7 @@ h6 {
 
   header .search {
     width: 34vw;
+    font-family: helvm;
   }
 
   .products {
@@ -485,12 +645,18 @@ h6 {
   }
 
   .item {
-    width: 45vw;
-    min-width: 240px;
+    width: 36vw;
+    min-width: 150px;
   }
 
   .nav-container {
     display: block;
+    z-index: 12;
+  }
+
+
+  .cart {
+    display: none;
   }
 
   .nav-container .checkbox {
@@ -502,6 +668,7 @@ h6 {
     z-index: 5;
     opacity: 0;
     cursor: pointer;
+    z-index: 12;
   }
 
   .nav-container .hamburger-lines {
@@ -514,6 +681,7 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 12;
   }
 
   .nav-container .hamburger-lines .line {
@@ -522,6 +690,7 @@ h6 {
     width: 100%;
     border-radius: 10px;
     background: #000000;
+    z-index: 12;
   }
 
   .nav-container .hamburger-lines .line1 {
@@ -580,11 +749,27 @@ h6 {
 }
 
 @media screen and (max-width: 750px) {
-  .catalogue li {
+  .catalogue a {
     width: 42vw;
   }
 
+  .cartItems {
+    flex-wrap: wrap;
+  }
+
+  .saved {
+    width: 85vw;
+  }
+
+  .bill {
+    width: 90vw;
+  }
+
   header ul {
+    display: none;
+  }
+
+  header .search {
     display: none;
   }
 
