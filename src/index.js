@@ -23,6 +23,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/panels" element={<Panel />} />
+        <Route path="/projectors" element={<Projectors />} />
         <Route path="/speakers" element={<Speakers />} />
         <Route path="/sensor" element={<Sensor />} />
         <Route path="/dj" element={<Dj />} />
