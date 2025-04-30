@@ -76,9 +76,17 @@ ul {
   justify-content: space-between;
 }
 
+header ul a {
+  display: flex;
+}
+
+svg {
+  margin-right: 6px;
+}
+
 ul a p {
   font-family: helvl;
-  color: white;
+  color: #ffffff86;
   margin: 0;
 }
 
@@ -186,6 +194,43 @@ ul a p {
   z-index: 2;
 }
 
+.catalogue a .sensorImage {
+  right: -70px;
+  bottom: -45px;
+  height: calc(var(--index) * 14 - 70px);
+}
+
+.contactIcons {
+  display: flex;
+  margin: 12px 5vw;
+}
+
+.contactIcon {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 12px;
+}
+
+.footer div {
+  max-width: 27vw;
+}
+
+.footer h3 {
+  margin: 0;
+}
+
+.footer a p {
+  color: #000;
+  font-family: helvl;
+}
+
 h3 {
   font-family: helvb;
   font-size: calc(var(--index) * 1.5 - 4px);
@@ -258,13 +303,31 @@ h6 {
   border-radius: 8px;
   position: relative;
   margin: 4px 16px;
-  padding: 12px 0;
+  padding: 8px 0;
   cursor: pointer;
 }
 
 .item button p {
   font-family: helvm;
   margin: 0;
+  font-size: 12px;
+}
+
+.prices {
+  display: flex;
+  flex-direction: column;
+}
+
+.stroke {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stroke p {
+  font-family: helvl;
+  font-size: 12px;
+  color: #2E2E2E;
 }
 
 .btn1 {
@@ -358,7 +421,7 @@ h6 {
 .block4 li img {
   width: 80px;
   height: 80px;
-  object-fit:cover;
+  object-fit: cover;
   border-radius: 100%;
   border: 4px #211C24 solid;
   float: right;
@@ -487,7 +550,8 @@ h6 {
   background: white;
 }
 
-.contactsTitle, .cartTitle {
+.contactsTitle,
+.cartTitle {
   font-family: helvb;
   margin: 52px 5vw 24px 5vw;
 }
@@ -674,9 +738,42 @@ header .logo {
   border-radius: 8px;
 }
 
+.priceTable {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 12px;
+  background: #F5F5F5;
+}
+
+.priceTable .bottombar {
+  border-bottom: 2px solid #8e8e8e;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.delivery {
+  margin: 0 20px;
+}
+
+.delivery p {
+  font-family: helvl;
+  margin-left: 4px;
+}
+
 @media screen and (max-width: 750px) {
   header nav {
     display: none;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    padding: 0 24px;
+  }
+
+  .footer div {
+    min-width: 45vw;
   }
 
   header {

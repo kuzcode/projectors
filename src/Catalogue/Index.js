@@ -25,10 +25,12 @@ const Catalog = () => {
     <body>
       <header>
         <div className='row'>
-          <img
-            className='logo'
-            src={logo}
-          />
+        <a href='/'>
+                        <img
+                            className='logo'
+                            src={logo}
+                        />
+                    </a>
 
           <nav>
             <a href="/"><p>Главная</p></a>
@@ -157,6 +159,30 @@ const Catalog = () => {
             }}>
               <p>Свяжитесь со мной</p>
             </button>
+          </div>
+        </div>
+
+        <div className='footer'>
+          <div><h3>proektor-nsk</h3></div>
+          <div>
+            <h3>Меню</h3>
+            <a href='/'><p>Главная</p></a>
+            <a href='/catalog'><p>Каталог</p></a>
+            <a href='/contacts'><p>Контакты</p></a>
+          </div>
+
+          <div>
+            <h3>Контакты</h3>
+            <a href='tel:+79628242222'><p>+7 (962) 824-22-22</p></a>
+            <a href='https://wa.me/089628242222'><p>Whatsapp</p></a>
+            <a href='https://t.me/adigamovrus'><p>Telegram</p></a>
+          </div>
+
+          <div>
+            <h3>Адрес</h3>
+            <a href='https://yandex.by/maps/65/novosibirsk/house/ulitsa_lomonosova_55_1/bEsYfwRlSUUHQFtvfXxyeHhlZA==/?ll=82.935001%2C55.039461&z=16.48'><p>Работаем с 10:00 до 19:00<br/>
+            г. Новосибирск, ул. Ломоносова 55/1 (Метро Маршала Покрышкина)
+            </p></a>
           </div>
         </div>
 

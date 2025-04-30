@@ -8,6 +8,8 @@ import logo from './assets/logo.png';
 const Cart = () => {
     const [phone, setPhone] = useState('')
     const [visible, setVisible] = useState(false);
+    const [delivery, setDelivery] = useState(false);
+    const [pricetoadd, setPricetoadd] = useState(0);
     const [savedItems, setSavedItems] = useState(JSON.parse(localStorage.getItem('savedItems')) || []);
 
 
@@ -25,10 +27,12 @@ const Cart = () => {
         <body>
             <header>
                 <div className='row'>
-                    <img
-                        className='logo'
-                        src={logo}
-                    />
+                    <a href='/'>
+                        <img
+                            className='logo'
+                            src={logo}
+                        />
+                    </a>
 
                     <nav>
                         <a href="/"><p>Главная</p></a>
@@ -38,7 +42,7 @@ const Cart = () => {
                     </nav>
 
                     <div className='nav-container' onClick={() => { setVisible(!visible) }} >
-                        <input class="checkbox" type="checkbox" name="" id=""/>
+                        <input class="checkbox" type="checkbox" name="" id="" />
                         <div class="hamburger-lines">
                             <span class="line line1"></span>
                             <span class="line line2"></span>
@@ -107,7 +111,23 @@ const Cart = () => {
                             )}
                         </div>
                         <div className='bill'>
-                            <h3>Итого: {calculateTotalPrice(savedItems)}₽</h3>
+                            <h3>Итого: {calculateTotalPrice(savedItems) + pricetoadd}₽</h3>
+
+                            <div className='row delivery'>
+                                <input
+                                    type='checkbox'
+                                    onClick={() => {
+                                        setDelivery(!delivery);
+                                        if (delivery === true) {
+                                            setPricetoadd(0);
+                                        }
+                                        else {
+                                            setPricetoadd(1000);
+                                        }
+                                    }}
+                                />
+                                <p>Мне нужна доставка</p>
+                            </div>
 
                             <p className='sub'>Номер телефона</p>
                             <div
@@ -138,6 +158,7 @@ const Cart = () => {
                                         {
                                             phone: phone,
                                             contactType: 'Не указан',
+                                            delivery: delivery,
                                             products: savedItems.map(item => item.title)
                                         }
                                     );
