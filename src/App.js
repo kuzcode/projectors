@@ -13,6 +13,7 @@ import telegram from './assets/telegram.png';
 import logo from './assets/logo.png';
 import { Router, useNavigate } from 'react-router-dom';
 import { ID, Query } from 'appwrite';
+import axios from 'axios';
 
 function App() {
   const [items, setItems] = useState([]); // Здесь будет храниться полученный список
@@ -22,6 +23,10 @@ function App() {
   const [more, setMore] = useState({
     visible: false,
   });
+
+  const TOKEN = '7933894536:AAHVid-llPAesdLtHYEXdCEvMnpvFNeCLtg';
+  const CHAT_ID = '5864245473';
+  const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -403,6 +408,13 @@ function App() {
               {phone}
             </div>
             <button onClick={() => {
+
+              axios.post(URL_API, {
+                chat_id: CHAT_ID,
+                parse_mode: 'html',
+                text: `Заявка, тип связи: ${['Звонок', 'Whatsapp', 'Telegram'][contactType]}, Номер телефона: ${phone}`
+            })
+
               const newPost = databases.createDocument(
                 '680f76f400310e3b1030',
                 '6810c2130026c004a692',

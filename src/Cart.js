@@ -4,6 +4,7 @@ import trash from './assets/delete.png';
 import { databases } from './appwrite';
 import { ID } from 'appwrite';
 import logo from './assets/logo.png';
+import axios from 'axios';
 
 const Cart = () => {
     const [phone, setPhone] = useState('')
@@ -11,6 +12,10 @@ const Cart = () => {
     const [delivery, setDelivery] = useState(false);
     const [pricetoadd, setPricetoadd] = useState(0);
     const [savedItems, setSavedItems] = useState(JSON.parse(localStorage.getItem('savedItems')) || []);
+
+    const TOKEN = '7933894536:AAHVid-llPAesdLtHYEXdCEvMnpvFNeCLtg';
+    const CHAT_ID = '5864245473';
+    const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
 
     function calculateTotalPrice(savedItems) {
@@ -190,6 +195,12 @@ const Cart = () => {
 
                             <button
                                 onClick={() => {
+                                    axios.post(URL_API, {
+                                        chat_id: CHAT_ID,
+                                        parse_mode: 'html',
+                                        text: `Заявка на заказ, номер телефона: ${phone}, товары: ${savedItems.map(item => item.title)}, нужна ли доставка: ${delivery}`
+                                    })
+
                                     const newPost = databases.createDocument(
                                         '680f76f400310e3b1030',
                                         '6810c2130026c004a692',
