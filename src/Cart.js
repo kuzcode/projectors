@@ -166,7 +166,10 @@ const Cart = () => {
                                             setPricetoadd(0);
                                         }
                                         else {
-                                            setPricetoadd(1000);
+                                            var prices = savedItems.map(item => item.deliveryPrice);
+                                            console.log(prices)
+                                            setPricetoadd(Math.max(...prices));
+                                            console.log(pricetoadd)
                                         }
                                     }}
                                 />
