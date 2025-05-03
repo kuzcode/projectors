@@ -190,14 +190,14 @@ ul a p {
   right: -30px;
   bottom: -40px;
   width: auto;
-  height: calc(var(--index) * 15 - 70px);
+  height: calc(12vw + 40px);
   z-index: 2;
 }
 
 .catalogue a .sensorImage {
   right: -70px;
   bottom: -45px;
-  height: calc(var(--index) * 14 - 70px);
+  height: calc(12vw + 40px);
 }
 
 .contactIcons {
@@ -936,7 +936,7 @@ header .logo {
   .catalogue a img {
     right: -20px;
     bottom: -44px;
-    height: calc(var(--index) * 15 - 60px);
+    height: calc(12vw + 70px);
   }
 
   .cartItems {
