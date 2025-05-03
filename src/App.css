@@ -399,14 +399,14 @@ h6 {
 
 .block4 {
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
 }
 
 .block4 li {
   list-style: none;
   background: #211C24;
   color: #fff;
-  width: calc(8vw + 200px);
+  min-width: calc(6vw + 200px);
   padding: 20px;
   margin: 24px 12px;
   border-radius: 36px;
