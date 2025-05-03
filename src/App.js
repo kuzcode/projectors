@@ -266,7 +266,7 @@ function App() {
                       title: item.title,
                       imageUrl: item.imageUrl,
                       price: item.price,
-                      description: item.description
+                      description: item.description,
                     })
                   }}
                 >

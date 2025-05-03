@@ -639,6 +639,14 @@ a {
   border-radius: 4px;
 }
 
+.bill .row p {
+  margin-right: 8px;
+}
+
+.amount {
+  margin: 0 8px;
+}
+
 .row {
   display: flex;
   align-items: center;
