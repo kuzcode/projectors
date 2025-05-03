@@ -141,7 +141,12 @@ const Projectors = () => {
             </button>
             <div>
               <h3>{more.title}</h3>
-              <p>{more.description}</p>
+              <p>{more.description.split('\n').map((line, index) => (
+                <span key={index}>
+                  {line}
+                  <br />
+                </span>
+              ))}</p>
               <div className='priceTable'>
                 <div className='row bottombar'>
                   <div className='column'>
