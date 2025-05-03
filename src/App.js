@@ -62,6 +62,8 @@ function App() {
             <a href="tel:+7(962)824-22-22"><p className='selected'>+7 (962) 824-22-22</p></a>
           </nav>
 
+          <a href="tel:+7(962)824-22-22" className='phoneNav'><p className='selected'>+7 (962) 824-22-22</p></a>
+
           <div className='nav-container' onClick={() => { setVisible(!visible) }}>
             <input class="checkbox" type="checkbox" name="" id="" />
             <div class="hamburger-lines">

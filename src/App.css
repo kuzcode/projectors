@@ -770,9 +770,19 @@ header .logo {
   margin-left: 4px;
 }
 
+.phoneNav {
+  display: none;
+}
+
 @media screen and (max-width: 750px) {
   header nav {
     display: none;
+  }
+
+  .phoneNav {
+    display: block;
+    color: #000;
+    padding-left: 48px;
   }
 
   .footer {
@@ -986,7 +996,12 @@ header .logo {
   }
 
   .block3 .steps {
-    display: none;
+    flex-wrap: wrap;
+  }
+
+  .block3 .steps li {
+    min-width: 140px;
+    margin: 0 12px;
   }
 
   .block4 {
