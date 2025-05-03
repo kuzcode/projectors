@@ -156,7 +156,7 @@ function App() {
             </button>
             <div>
               <h3>{more.title}</h3>
-              <p>{more.description}</p>
+              <p className='textwrap'>{more.description}</p>
               <div className='priceTable'>
                 <div className='row bottombar'>
                   <div className='column'>

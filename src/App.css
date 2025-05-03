@@ -755,6 +755,10 @@ header .logo {
   background: #F5F5F5;
 }
 
+.textwrap {
+  text-wrap: wrap;
+}
+
 .priceTable .bottombar {
   border-bottom: 2px solid #8e8e8e;
   padding-bottom: 12px;
@@ -964,7 +968,7 @@ header .logo {
   }
 
   .block1 {
-    height: 90vh;
+    height: 100vh;
     margin-top: 0;
   }
 
@@ -985,7 +989,7 @@ header .logo {
 
   .block1 a {
     position: absolute;
-    bottom: 100px;
+    bottom: 24px;
     left: 0;
     right: 0;
   }
