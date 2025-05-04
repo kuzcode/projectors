@@ -131,6 +131,7 @@ const Projectors = () => {
           </div>
         )}
 
+
         {more.visible && (
           <div className='more'>
             <img
