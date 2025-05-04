@@ -14,27 +14,9 @@ const CHAT_ID = '324544727';
 const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
 function Contacts() {
-    const [items, setItems] = useState([]); // Здесь будет храниться полученный список
     const [contactType, setContactType] = useState(0);
     const [phone, setPhone] = useState(null);
     const [visible, setVisible] = useState(false);
-
-    const handleSubmit = () => {
-        console.log(phone);
-    };
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await databases.listDocuments('680f76f400310e3b1030', '680f79ba000b5bbffbbd');
-                setItems(response.documents);
-            } catch (error) {
-                console.error("Error fetching data from Appwrite: ", error);
-            }
-        };
-
-        fetchData();
-    }, []);
 
     return (
         <body>
